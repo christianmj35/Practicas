@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_Local_form" model="ir.ui.view"> 
+        <field name="name">ej.Local.form</field> 
+        <field name="model">ej.Local</field> 
+        <field name="arch" type="xml"> 
+            <form string="Listado de Local"> 
+                <group> 
+                    <field name="numero_local"/> 
+                    <field name="area"/> 
+                    <field name="medidor_electrico"/> 
+                    <field name="medidor_agua"/> 
+                    <field name="piso"/> 
+                    <field name="edificio"/> 
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_Local_tree" model="ir.ui.view"> 
+        <field name="name">ej.Local.tree</field> 
+        <field name="model">ej.Local</field> 
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="numero_local"/> 
+                    <field name="area"/> 
+                    <field name="medidor_electrico"/> 
+                    <field name="medidor_agua"/> 
+                    <field name="piso"/> 
+                    <field name="edificio"/> 
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_Local"> 
+        <field name="name">Local</field> 
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">ej.Local</field> 
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_Local_menu" name="Local" sequence="10"/> 
+<menuitem id="submenu_ej_Local_menu" name="Local" sequence="10" parent="ej_Local_menu"/> 
+<menuitem id="submenu_ej_Local_action" name="Local" sequence="10" parent="submenu_ej_Local_menu" action="act_ej_Local"/> 
+</odoo> 

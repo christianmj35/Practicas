@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_Piso_form" model="ir.ui.view"> 
+        <field name="name">ej.Piso.form</field> 
+        <field name="model">ej.Piso</field> 
+        <field name="arch" type="xml"> 
+            <form string="Listado de Pisos"> 
+                <group> 
+                    <field name="numero_piso"/> 
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_Piso_tree" model="ir.ui.view"> 
+        <field name="name">ej.Local.tree</field> 
+        <field name="model">ej.Local</field> 
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="numero_piso"/> 
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_Local"> 
+        <field name="name">Piso</field> 
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">ej.Piso</field> 
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_Piso_menu" name="Piso" sequence="10"/> 
+<menuitem id="submenu_ej_Piso_menu" name="Piso" sequence="10" parent="ej_Piso_menu"/> 
+<menuitem id="submenu_ej_Piso_action" name="Piso" sequence="10" parent="submenu_ej_Piso_menu" action="act_ej_Piso"/> 
+</odoo> 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_Edificio_form" model="ir.ui.view"> 
+        <field name="name">ej.Edificio.form</field> 
+        <field name="model">ej.Edificio</field> 
+        <field name="arch" type="xml"> 
+            <form string="Listado de Edificios"> 
+                <group> 
+                    <field name="nombre"/> 
+                    <field name="direccion"/> 
+                    <field name="area_terreno"/> 
+                    <field name="area_construccion"/> 
+                    <field name="lista_pisos"/> 
+                    <field name="valor_real"/> 
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_Edificio_tree" model="ir.ui.view"> 
+        <field name="name">ej.Local.tree</field> 
+        <field name="model">ej.Local</field> 
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="nombre"/> 
+                    <field name="direccion"/> 
+                    <field name="area_terreno"/> 
+                    <field name="area_construccion"/> 
+                    <field name="lista_pisos"/> 
+                    <field name="valor_real"/> 
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_Local"> 
+        <field name="name">Edificio</field> 
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">ej.Edificio</field> 
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_Edificio_menu" name="Edificio" sequence="10"/> 
+<menuitem id="submenu_ej_Edificio_menu" name="Edificio" sequence="10" parent="ej_Edificio_menu"/> 
+<menuitem id="submenu_ej_Edificio_action" name="Edificio" sequence="10" parent="submenu_ej_Edificio_menu" action="act_ej_Edificio"/> 
+</odoo> 

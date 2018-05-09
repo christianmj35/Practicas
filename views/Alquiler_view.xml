@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_Alquiler_form" model="ir.ui.view"> 
+        <field name="name">ej.Alquiler.form</field> 
+        <field name="model">ej.Local</field> 
+        <field name="arch" type="xml"> 
+            <form string="Listado de Alquileres"> 
+                <group> 
+                    <field name="numero_contrato"/> 
+                    <field name="locales_alquilados"/> 
+                    <field name="monto_mensual"/> 
+                    <field name="mantenimiento"/> 
+                    <field name="facturas_emitidas"/> 
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_final"/> 
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_Alquiler_tree" model="ir.ui.view"> 
+        <field name="name">ej.Alquiler.tree</field> 
+        <field name="model">ej.Alquiler</field> 
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="numero_contrato"/> 
+                    <field name="locales_alquilados"/> 
+                    <field name="monto_mensual"/> 
+                    <field name="mantenimiento"/> 
+                    <field name="facturas_emitidas"/> 
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_final"/> 
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_Local"> 
+        <field name="name">Alquiler</field> 
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">ej.Alquiler</field> 
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_Alquiler_menu" name="Alquiler" sequence="10"/> 
+<menuitem id="submenu_ej_Alquiler_menu" name="Alquiler" sequence="10" parent="ej_Alquiler_menu"/> 
+<menuitem id="submenu_ej_Alquiler_action" name="Alquiler" sequence="10" parent="submenu_ej_Alquiler_menu" action="act_ej_Alquiler"/> 
+</odoo> 
